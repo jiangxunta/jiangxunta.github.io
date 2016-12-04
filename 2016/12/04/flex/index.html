@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>jiangxunta blog</title>
+  <title>深入理解 flex-grow &amp; flex-shrink &amp; flex-basis | jiangxunta blog</title>
   <meta name="author" content="jiangxunta">
   
   <meta name="description" content="学习总结 思考感悟 知识管理">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="深入理解 flex-grow &amp; flex-shrink &amp; flex-basis"/>
   <meta property="og:site_name" content="jiangxunta blog"/>
 
   
@@ -52,8 +52,7 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -63,7 +62,7 @@
       
       
   
-    <h1 class="title"><a href="/2016/12/04/flex/">深入理解 flex-grow &amp; flex-shrink &amp; flex-basis</a></h1>
+    <h1 class="title">深入理解 flex-grow &amp; flex-shrink &amp; flex-basis</h1>
   
 
     </header>
@@ -82,9 +81,49 @@
     <footer>
       
         
-        
-    <a href="/2016/12/04/flex/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/flex/" data-count-type="comments"></a>
+  
+  <div class="categories">
+    <a href="/categories/css3/">css3</a>
+  </div>
 
+        
+  
+  <div class="tags">
+    <a href="/tags/flex/">flex</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
       
       <div class="clearfix"></div>
     </footer>
@@ -92,103 +131,13 @@
 </article>
 
 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2016/12/04/flex/"></div>
+    </section>
 
 
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-02T11:31:21.000Z"><a href="/2016/12/02/hexo2/">2016-12-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/02/hexo2/">hexo 常用的命令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装  </div><div class="line">npm update hexo -g #升级  </div><div class="line">hexo init #初始化</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</div><div class="line">hexo p == hexo publish</div><div class="line">hexo g == hexo generate#生成</div><div class="line">hexo s == hexo server #启动服务预览</div><div class="line">hexo d == hexo deploy#部署</div></pre></td></tr></table></figure>
-<p>服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</div><div class="line">hexo server -s #静态模式</div><div class="line">hexo server -p 5000 #更改端口</div><div class="line">hexo server -i 192.168.1.1 #自定义 IP</div><div class="line"></div><div class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</div><div class="line">hexo g #生成静态网页</div><div class="line">hexo d #开始部署</div></pre></td></tr></table></figure></p>
-<p>监视文件变动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate #使用 Hexo 生成静态文件快速而且简单</div><div class="line">hexo generate --watch #监视文件变动</div></pre></td></tr></table></figure></p>
-<p>完成后部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">两个命令的作用是相同的</div><div class="line">hexo generate --deploy</div><div class="line">hexo deploy --generate</div><div class="line">hexo deploy -g</div><div class="line">hexo server -g</div></pre></td></tr></table></figure></p>
-<p>草稿<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo publish [layout]</div></pre></td></tr></table></figure></p>
-<p>模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo new [layout]</div><div class="line">hexo new photo &quot;My Gallery&quot;</div><div class="line">hexo new &quot;Hello World&quot; --lang tw</div></pre></td></tr></table></figure></p>
-<p>推送到服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo n #写文章</div><div class="line">hexo g #生成</div><div class="line">hexo d #部署 #可与hexo g合并为 hexo d -g</div></pre></td></tr></table></figure></p>
-<p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">找不到git部署 ERROR Deployer not found: git</div><div class="line">解决方法: npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>部署类型设置git 在主配置底部的deploy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>xcodebuild<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xcode-select: error: tool &apos;xcodebuild&apos; requires Xcode, but active developer directory &apos;/Library/Developer/CommandLineTools&apos; is a command line tools instance</div><div class="line">要安装 npm install bcrypt</div></pre></td></tr></table></figure></p>
-<p>RSS不显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装RSS插件 npm install hexo-generator-feed --save</div><div class="line">开启RSS功能 编辑hexo/_config.yml，添加如下代码：</div><div class="line">rss: /atom.xml #rss地址  默认即可</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/02/hexo2/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/02/hexo2/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-02T10:32:56.000Z"><a href="/2016/12/02/hexo1/">2016-12-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/02/hexo1/">hexo 本地代码创建</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="先保证本地安装"><a href="#先保证本地安装" class="headerlink" title="先保证本地安装"></a>先保证本地安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node</div><div class="line">npm install hexo</div><div class="line">npm install hexo-deployer-git</div></pre></td></tr></table></figure>
-<h3 id="在github-上创建密钥"><a href="#在github-上创建密钥" class="headerlink" title="在github 上创建密钥"></a>在github 上创建密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh 进入下看下是否已经有公钥，有就备份,然后删除</div><div class="line">git config --global user.name <span class="string">"xxx"</span></div><div class="line">git config --global user.email <span class="string">"xxx"</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx"</span></div><div class="line">vi id_rsa.pub  打开这个文件复制到github密钥里面</div><div class="line">在github上 setting -&gt; SSH keys </div><div class="line">验证是否连上： ssh -T git@github.com</div></pre></td></tr></table></figure>
-<h3 id="在本地初始化及安装"><a href="#在本地初始化及安装" class="headerlink" title="在本地初始化及安装"></a>在本地初始化及安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/xxx/xxx.github.io.git</div><div class="line"><span class="built_in">cd</span> xxx.github.io/</div><div class="line">hexo init</div><div class="line">git init</div><div class="line">vi _config.yml</div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>更多文件说明参考: <a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">连接1</a><br><a href="http://www.jianshu.com/p/70343b7c2fd3" target="_blank" rel="external">连接2</a></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">├── _config.yml //网站的`配置`信息，您可以在此配置大部分的参数。</div><div class="line">├── package.json</div><div class="line">├── db.json // json格式的静态常量数据库 </div><div class="line">├── node_modules // Hexo的功能JavaScript文件</div><div class="line">├── public // 生成静态网页文件</div><div class="line">├── scaffolds //模版文件夹。当您新建文章时，Hexo会根据scaffold来建立文件。</div><div class="line">├── <span class="built_in">source</span> //资源文件夹是存放用户资源的地方。</div><div class="line">| ├── _drafts // 草稿文件夹</div><div class="line">| └── _posts // 文章文件夹</div><div class="line">└── themes //主题文件夹。Hexo会根据主题来生成静态页面。﻿​</div></pre></td></tr></table></figure>
-<p>详细更改配置等: <a href="http://www.mjiayou.com/2014/08/18/hexo-theme-modify-based-light/" target="_blank" rel="external">连接</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/02/hexo1/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/02/hexo1/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   <SCRIPT language=javascript>
 function search(formname) {
