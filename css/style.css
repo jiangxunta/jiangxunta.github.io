@@ -671,7 +671,12 @@ article footer .addthis iframe {
 }
 #sidebar .tag-list-item {
   font-size: 0.9em;
+  float: left;
+  margin-right: 5px;
+}
+#sidebar .tag-list {
   padding: 15px 20px;
+  overflow: hidden;
 }
 #footer {
   color: #999;
