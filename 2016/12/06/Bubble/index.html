@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo 本地代码创建 | jiangxunta blog</title>
+  <title>Bubble | jiangxunta blog</title>
   <meta name="author" content="jiangxunta">
   
   <meta name="description" content="学习总结 思考感悟 知识管理">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hexo 本地代码创建"/>
+  <meta property="og:title" content="Bubble"/>
   <meta property="og:site_name" content="jiangxunta blog"/>
 
   
@@ -58,22 +58,17 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-12-02T10:32:56.000Z"><a href="/2016/12/02/hexo1/">2016-12-02</a></time>
+        <time datetime="2016-12-06T02:35:12.000Z"><a href="/2016/12/06/Bubble/">2016-12-06</a></time>
       
       
   
-    <h1 class="title">hexo 本地代码创建</h1>
+    <h1 class="title">Bubble</h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="先保证本地安装"><a href="#先保证本地安装" class="headerlink" title="先保证本地安装"></a>先保证本地安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node</div><div class="line">npm install hexo</div><div class="line">npm install hexo-deployer-git</div></pre></td></tr></table></figure>
-<h3 id="在github-上创建密钥"><a href="#在github-上创建密钥" class="headerlink" title="在github 上创建密钥"></a>在github 上创建密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh 进入下看下是否已经有公钥，有就备份,然后删除</div><div class="line">git config --global user.name <span class="string">"xxx"</span></div><div class="line">git config --global user.email <span class="string">"xxx"</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx"</span></div><div class="line">vi id_rsa.pub  打开这个文件复制到github密钥里面</div><div class="line">在github上 setting -&gt; SSH keys </div><div class="line">验证是否连上： ssh -T git@github.com</div></pre></td></tr></table></figure>
-<h3 id="在本地初始化及安装"><a href="#在本地初始化及安装" class="headerlink" title="在本地初始化及安装"></a>在本地初始化及安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/xxx/xxx.github.io.git</div><div class="line"><span class="built_in">cd</span> xxx.github.io/</div><div class="line">hexo init</div><div class="line">git init</div><div class="line">vi _config.yml</div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>更多文件说明参考: <a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">连接1</a><br><a href="http://www.jianshu.com/p/70343b7c2fd3" target="_blank" rel="external">连接2</a></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">├── _config.yml //网站的`配置`信息，您可以在此配置大部分的参数。</div><div class="line">├── package.json</div><div class="line">├── db.json // json格式的静态常量数据库 </div><div class="line">├── node_modules // Hexo的功能JavaScript文件</div><div class="line">├── public // 生成静态网页文件</div><div class="line">├── scaffolds //模版文件夹。当您新建文章时，Hexo会根据scaffold来建立文件。</div><div class="line">├── <span class="built_in">source</span> //资源文件夹是存放用户资源的地方。</div><div class="line">| ├── _drafts // 草稿文件夹</div><div class="line">| └── _posts // 文章文件夹</div><div class="line">└── themes //主题文件夹。Hexo会根据主题来生成静态页面。﻿​</div></pre></td></tr></table></figure>
-<p>详细更改配置等: <a href="http://www.mjiayou.com/2014/08/18/hexo-theme-modify-based-light/" target="_blank" rel="external">连接</a></p>
+        <h3 id="阻止冒泡"><a href="#阻止冒泡" class="headerlink" title="阻止冒泡"></a>阻止冒泡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -82,13 +77,13 @@
         
   
   <div class="categories">
-    <a href="/categories/blog/">blog</a>
+    <a href="/categories/js/">js</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/冒泡/">冒泡</a>, <a href="/tags/捕获/">捕获</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -132,7 +127,7 @@
 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="2016/12/02/hexo1/"></div>
+        <div class="ds-thread" data-thread-key="2016/12/06/Bubble/"></div>
     </section>
 
 
