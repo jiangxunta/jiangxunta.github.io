@@ -59,6 +59,88 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-21T13:04:38.000Z"><a href="/2016/12/21/bower/">2016-12-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/21/bower/">bower</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="bower-安装及查看版本等"><a href="#bower-安装及查看版本等" class="headerlink" title="bower 安装及查看版本等"></a>bower 安装及查看版本等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在安装node的基础上</div><div class="line">npm install -g bower</div><div class="line">bower -v</div><div class="line">bower help</div></pre></td></tr></table></figure>
+<h3 id="bower的使用"><a href="#bower的使用" class="headerlink" title="bower的使用"></a>bower的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">使用了bower的项目都会在目录下有一个bower.json文件。在该文件同级目录下，使用如下命令即可安装相关依赖库。</div><div class="line">安装包</div><div class="line">bower install jquery</div><div class="line">更新包</div><div class="line">bower update jquery</div><div class="line">卸载包</div><div class="line">bower uninstall jquery</div><div class="line"></div><div class="line">.bowerrc 可以方便把安装的包放到 一个文件夹里面</div><div class="line">.bowerrc 文件可以如下写</div><div class="line">&#123;</div><div class="line">  &quot;directory&quot;: &quot;vendors&quot;</div><div class="line">&#125;</div><div class="line">把安装的包放到vendors文件夹里</div><div class="line">更多的配置查看地址：https://github.com/bower/spec/blob/master/config.md</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注意</div><div class="line">使用bower install jquery --save才会把jquery依赖记入到bower.json。如果不加--save就不会有</div><div class="line">要安装某个版本使用#，如安装juqery1.9.1，可以使用bower install jquery#1.9.1。</div><div class="line">除了用包名安装，也可以指定git地址，进行安装，如bower install https://github.com/jquery/jquery。</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/21/bower/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/bower/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-21T02:33:26.000Z"><a href="/2016/12/21/react1/">2016-12-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/21/react1/">react1</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="react-认识"><a href="#react-认识" class="headerlink" title="react 认识"></a>react 认识</h3><p>React是一个用于构建用户界面的JavaScript库，而不是一个MVC框架，但可以使用React作为MVC架构的View层轻易的在已有项目中使用。<br>ajax出现，实现页面局部刷新，但是复杂的用户交互及展现需要通过大量的DOM操作来完成，这让页面的性能以及开发的效率下降<br>前端性能优化:减少DOM元素、减少reflow和repaint、编码过程中尽量减少DOM的查询<br>React通过自己实现的DOM Diff算法，计算出虚拟页面当前版本和新版本之间的差异，最小化重绘，避免不必要的DOM操作，解决了这两个公认的前端性能瓶颈，实现高效DOM渲染。<br>React 从来没有说过 “React 比原生操作 DOM 快”。React 的基本思维模式是每次有变动就整个重新渲染整个应用。如果没有 Virtual DOM，简单来想就是直接重置 innerHTML。<br>在比较性能的时候，要分清楚初始渲染、小量数据更新、大量数据更新这些不同的场合。<br>不要天真地以为 Virtual DOM 就是快，diff 不是免费的，Virtual DOM 真正的价值从来都不是性能，而是它 1) 为函数式的 UI 编程方式打开了大门；2) 可以渲染到 DOM 以外的其他场景，如backend、native。</p>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>在业务开发中，遇到公共的模板部分，我们不得不将模板和规定的数据格式耦合在一起来实现组件。而在React中，我们可以使用JSX语法来封装组件，将组件的结构、数据逻辑甚至样式都聚合在一起，更加简单、明了、直观的定义组件。</p>
+<p>有了组件化的实现，我们可以很直观的将一个复杂的页面分割成若干个独立组件，再将这些独立组件组合完成一个复杂的页面。这样既减少了逻辑复杂度，又实现了代码的重用。<br>React认为一个组件应该具有如下的特征：</p>
+<p>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部，通过这样的组合方式，一个复杂的UI组件可以分拆成若干个简单的UI组件<br>可重用：每个组件都是具有独立功能的，它可以被使用在多个UI场景<br>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</p>
+<h3 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h3><p>在React中，数据的流向是从父节点到子节点的单向流动，这样可以使组件简单并且容易把握，因为子节点是无状态的，只需要从父节点获取props渲染即可。这样带来的收益是，顶层组件的某个prop改变了，React就会向下递归遍历整棵组件树，重新渲染所有使用到了这个属性的组件。</p>
+<p>单向数据流带来的几个重要的好处是：</p>
+<p>相比之前的资源重组实现的组件，单向数据流可以很好的完成组件间的数据通信，否则的话，我们需要写一个事件机制来处理这个事情。<br>大家可能会问，这所倡导的单向流动，那相对MVC或是MVVM框架的双向数据绑定简直是弱爆了。那么这里需要理解的是，这里的单向，是循环流动的单向，数据是持续更新的。双向数据绑定是优秀便捷的实现，这个需要用实现的成本和业务场景来考量二者了。<br>对于单向数据流目前已经有很好的类库实现了，如flux reflux redux等。</p>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p><a href="https://github.com/facebook/react" target="_blank" rel="external">github官方仓库</a><br><a href="https://facebook.github.io/react/" target="_blank" rel="external">react官网</a><br><a href="http://reactjs.cn/" target="_blank" rel="external">react中国官网</a></p>
+<p>架构及周边生态<br>架构<br>和其他类库或是框架结合使用<br>比如和backbone结合，弥补了backbone的薄弱的view层；<br>和angular结合，让组件的渲染更快<br>和flux相关类库结合<br>flux<br>reflux<br>redux<br>生态<br>使用webpack打包<br>和ES6结合来封装你的组件<br>测试相关<br>浏览器兼容性等问题是你在使用后不得不考虑的问题。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/21/react1/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/react1/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-18T13:24:00.000Z"><a href="/2016/12/18/compaty/">2016-12-18</a></time>
       
       
@@ -187,85 +269,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/box/">2016-12-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/04/box/">display box</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-flex主要让子容器针对父容器的宽度按一定规则进行划分</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">&lt;article&gt;</div><div class="line">    &lt;section&gt;01&lt;/section&gt;</div><div class="line">    &lt;section&gt;02&lt;/section&gt;</div><div class="line">    &lt;section&gt;03&lt;/section&gt;</div><div class="line">&lt;/article&gt;</div><div class="line">css</div><div class="line">.wrap&#123;</div><div class="line">    width:600px;</div><div class="line">    height:200px;</div><div class="line">    display:-moz-box;</div><div class="line">    display:-webkit-box;</div><div class="line">    display:box;</div><div class="line">&#125;</div><div class="line">.sectionOne&#123;</div><div class="line">    background:orange;</div><div class="line">    -moz-box-flex:3;</div><div class="line">    -webkit-box-flex:3;</div><div class="line">    box-flex:3;</div><div class="line">&#125;</div><div class="line">.sectionTwo&#123;</div><div class="line">    background:purple;</div><div class="line">    -moz-box-flex:2;</div><div class="line">    -webkit-box-flex:2;</div><div class="line">    box-flex:2;</div><div class="line">&#125;</div><div class="line">.sectionThree&#123;</div><div class="line">    -moz-box-flex:1;</div><div class="line">    -webkit-box-flex:1;</div><div class="line">    box-flex:1;</div><div class="line">    background:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/04/box/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/box/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/flex/">2016-12-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/04/flex/">深入理解 flex-grow &amp; flex-shrink &amp; flex-basis</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="flex属性-有兼容性（最好不用）"><a href="#flex属性-有兼容性（最好不用）" class="headerlink" title="flex属性 有兼容性（最好不用）"></a>flex属性 有兼容性（最好不用）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto</div></pre></td></tr></table></figure>
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">实例</div><div class="line">html</div><div class="line">&lt;div class=&quot;wrapper flex-grow&quot;&gt;</div><div class="line">    &lt;div&gt;A&lt;/div&gt;</div><div class="line">    &lt;div&gt;B&lt;/div&gt;</div><div class="line">    &lt;div&gt;C&lt;/div&gt;</div><div class="line">    &lt;div&gt;D&lt;/div&gt;</div><div class="line">    &lt;div&gt;E&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">css</div><div class="line">.wrapper &#123;</div><div class="line">    display: -webkit-flex;</div><div class="line">    display: flex;</div><div class="line">    width: 660px;</div><div class="line">    background-color: #eee;</div><div class="line">&#125;</div><div class="line">.wrapper div &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    text-align: center;</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(1)&#123;</div><div class="line">    background: rgb(0, 137, 250);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(2) &#123;</div><div class="line">    flex-grow: 1;</div><div class="line">    width: 120px;</div><div class="line">    background: rgb(251, 6, 6);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(3) &#123;</div><div class="line">    flex-grow: 2;</div><div class="line">    width: 130px;</div><div class="line">    background: rgb(0, 188, 212);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(4)&#123;</div><div class="line">    background: rgb(233, 30, 99);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(5)&#123;</div><div class="line">    background: rgb(0, 150, 136);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">定义项目的放大比例，默认值为0，就算存在剩余空间，也不会放大</div><div class="line">flex-grow的默认值为0，如果没有定义该属性，是不会拥有分配剩余空间的权利的。A, B, C, D, E 的</div><div class="line">宽度分别是 100, 120, 130, 100, 100，父级的宽度是660，父级宽减去子级的全部宽度，这样剩余空</div><div class="line">间就是110。例子中B, C定义了flex-grow，分别是1，2，那剩余空间分成3份，B1份，C2份，比例就是</div><div class="line">1：2，分配计算出来的值就是B :36.666666666666664, C：73.33333333333333。这个时候剩余空</div><div class="line">间就被计算出来了，相加后的结果就是B：156.66666666666666，C：203.33333333333331。</div><div class="line"></div><div class="line">B的计算公式：120 + (110 / 3) * 1</div><div class="line"></div><div class="line">C的计算公式: 130 + (110 / 3) * 2</div></pre></td></tr></table></figure>
-<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">定义项目的缩小比例，默认值为1，注意前提是空间不足的情况下</div><div class="line">实例</div><div class="line">html</div><div class="line">&lt;div class=&quot;wrapper flex-shrink&quot;&gt;</div><div class="line">  &lt;div&gt;A&lt;/div&gt;</div><div class="line">  &lt;div&gt;B&lt;/div&gt;</div><div class="line">  &lt;div&gt;C&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">css</div><div class="line">.wrapper &#123;</div><div class="line">  display: flex;</div><div class="line">  width: 300px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(1)&#123;</div><div class="line">  background: rgb(0, 137, 250);</div><div class="line">  flex-basis: 155px;</div><div class="line">  flex-shrink: 2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(2)&#123;</div><div class="line">  background: rgb(233, 30, 99);</div><div class="line">  flex-basis: 200px;</div><div class="line">  flex-shrink: 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(3)&#123;</div><div class="line">  background: rgb(0, 150, 136);</div><div class="line">  flex-basis: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">这里 A, B, C 的宽度分别是155, 200, 50，(注意这里的宽度我是用flex-basis代替的，在这个例子中和width的作用是一样的)。 父级宽度是300，计算超出的空间就是 -105，这样超出的 105px 就要被 A, B, C 消化掉，比例是2：1：1。</div><div class="line"></div><div class="line">如何消化 ？ 首先是每个项目的wdith值乘以flex-shrink值求积，</div><div class="line"></div><div class="line">A：(155 * 2) = 310</div><div class="line">B：(200 * 1) = 200</div><div class="line">C：(50 * 1) = 50。</div><div class="line"></div><div class="line">然后再求和所有项目的乘积。</div><div class="line"></div><div class="line">(310 + 200 + 50) = 560</div><div class="line"></div><div class="line">得到求占比之后还要乘以要腾出的空间。</div><div class="line"></div><div class="line">A：(310 / 560) * 105 = 58.125</div><div class="line">B：(200 / 560) * 105 = 37.5</div><div class="line">C：(50 / 560) * 105 = 9.375</div><div class="line"></div><div class="line">得到每一项要腾出的空间後然後</div><div class="line"></div><div class="line">A：(155 - 58.125) = 96.875</div><div class="line">B：(200 - 37.5) = 162.5</div><div class="line">C：(50 - 9.375) = 40.625</div><div class="line">好了，这样就得出计算后的宽度了。</div></pre></td></tr></table></figure>
-<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">和width一样，他的默认值为auto，把上面几个例子换成width也是一样的。当然工作中最好用flex-basis，更符合规范。</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果父级的空间足够：flex-grow有效，flex-shrink无效。</div><div class="line">如果父级的空间不够：flex-shrink 有效，flex-grow无效。</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/04/flex/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/flex/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -294,14 +297,14 @@ function search(formname) {
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
 </div>
 
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
 </div>
 
 
@@ -309,7 +312,7 @@ function search(formname) {
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
+    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
   </div>
 </div>
 
