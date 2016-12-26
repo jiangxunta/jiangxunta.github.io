@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>bower | jiangxunta blog</title>
+  <title>react2 | jiangxunta blog</title>
   <meta name="author" content="jiangxunta">
   
   <meta name="description" content="学习总结 思考感悟 知识管理">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="bower"/>
+  <meta property="og:title" content="react2"/>
   <meta property="og:site_name" content="jiangxunta blog"/>
 
   
@@ -58,19 +58,20 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-12-21T13:04:38.000Z"><a href="/2016/12/21/bower/">2016-12-21</a></time>
+        <time datetime="2016-12-26T12:45:49.000Z"><a href="/2016/12/26/react2/">2016-12-26</a></time>
       
       
   
-    <h1 class="title">bower</h1>
+    <h1 class="title">react2</h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="bower-安装及查看版本等"><a href="#bower-安装及查看版本等" class="headerlink" title="bower 安装及查看版本等"></a>bower 安装及查看版本等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在安装node的基础上</div><div class="line">npm install -g bower</div><div class="line">bower -v</div><div class="line">bower help</div></pre></td></tr></table></figure>
-<h3 id="bower的使用"><a href="#bower的使用" class="headerlink" title="bower的使用"></a>bower的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">使用了bower的项目都会在目录下有一个bower.json文件。在该文件同级目录下，使用如下命令即可安装相关依赖库。</div><div class="line">安装包</div><div class="line">bower install jquery</div><div class="line">更新包</div><div class="line">bower update jquery</div><div class="line">卸载包</div><div class="line">bower uninstall jquery</div><div class="line"></div><div class="line">.bowerrc 可以方便把安装的包放到 一个文件夹里面</div><div class="line">.bowerrc 文件可以如下写</div><div class="line">&#123;</div><div class="line">  &quot;directory&quot;: &quot;vendors&quot;</div><div class="line">&#125;</div><div class="line">把安装的包放到vendors文件夹里</div><div class="line">更多的配置查看地址：https://github.com/bower/spec/blob/master/config.md</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注意</div><div class="line">使用bower install jquery --save才会把jquery依赖记入到bower.json。如果不加--save就不会有</div><div class="line">要安装某个版本使用#，如安装juqery1.9.1，可以使用bower install jquery#1.9.1。</div><div class="line">除了用包名安装，也可以指定git地址，进行安装，如bower install https://github.com/jquery/jquery。</div></pre></td></tr></table></figure>
+        <h3 id="browser-js"><a href="#browser-js" class="headerlink" title="browser.js"></a>browser.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">browser.js 的作用是将 JSX 语法转为 JavaScript 语法 </div><div class="line">&lt;!-- JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type=&quot;text/babel&quot; --&gt;</div><div class="line">&lt;script type=&quot;text/babel&quot;&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="react-js"><a href="#react-js" class="headerlink" title="react.js"></a>react.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">之前的react.js现在已经被分拆为react.js react-dom.js react-dom-server.js三个文件</div><div class="line">react包提供API</div><div class="line">使用ES6可以用这个组件 React.Component 定义一个组件</div><div class="line">React.createClass 创建一个组件类 并作出定义</div><div class="line">React.createElement 创建并指定一个新的基本类型 React.cloneElement</div><div class="line">React.createFactory 返回一个生成指定类型 ReactElements 的函数 </div><div class="line">React.isValidElement 验证一个对象是否为ReactElement，返回boolean值</div><div class="line">react包提供了一系列与DOM相关的API</div><div class="line">ReactDOM.render 渲染一个 ReactElement 到 DOM 中，放在 container 指定的 DOM 元素下，返回一个到该组件的引用。</div><div class="line">ReactDOM.unmountComponentAtNode 从 DOM 中移除已经挂载的 React 组件，清除相应的事件处理器和 state</div><div class="line">ReactDOM.findDOMNode</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">服务端渲染的几个 API 被独立出来，以下两个是常用的</div><div class="line">ReactDOMServer.renderToString</div><div class="line">ReactDOMServer.renderToStaticMarkup</div></pre></td></tr></table></figure>
+<h3 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">var MyList = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;ul&gt;</div><div class="line">        &#123;</div><div class="line">          this.props.list.map(function (child) &#123;</div><div class="line">            return &lt;li&gt;&#123;child&#125;&lt;/li&gt;</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">      &lt;/ul&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var TagList = [</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Facebook&lt;/a&gt;,</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Google&lt;/a&gt;</div><div class="line">];</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;MyList list=&#123;TagList&#125; /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">var MyData = [&apos;React&apos;, &apos;is&apos;, &apos;awesome&apos;],</div><div class="line">    MyStyles = &#123;</div><div class="line">      color: &quot;#333&quot;,</div><div class="line">      fontSize: &quot;40px&quot;,</div><div class="line">      fontWeight: &quot;bold&quot;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div style=&#123;MyStyles&#125;&gt;</div><div class="line">  &#123;</div><div class="line">    MyData.map(function (name) &#123;</div><div class="line">      return &lt;span&gt;&#123;name&#125; &lt;/span&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">render的方法中return的顶级元素只能是一个</div><div class="line">如果要定义样式的时候，不能这样去写</div><div class="line">// 不要出现类似的错误，style=&quot;opacity:&#123;this.state.opacity&#125;;&quot;</div><div class="line">使用 className 和 htmlFor 来替代对应的class 和 for</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -79,13 +80,13 @@
         
   
   <div class="categories">
-    <a href="/categories/bower/">bower</a>
+    <a href="/categories/reactjs/">reactjs</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/tools/">tools</a>
+    <a href="/tags/react/">react</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -129,7 +130,7 @@
 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="2016/12/21/bower/"></div>
+        <div class="ds-thread" data-thread-key="2016/12/26/react2/"></div>
     </section>
 
 
