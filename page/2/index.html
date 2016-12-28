@@ -59,6 +59,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-06T02:35:12.000Z"><a href="/2016/12/06/Bubble/">2016-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/06/Bubble/">Bubble</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="阻止冒泡"><a href="#阻止冒泡" class="headerlink" title="阻止冒泡"></a>阻止冒泡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">实例·</div><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div><div class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot; /&gt;</div><div class="line">&lt;title&gt;效果测试&lt;/title&gt;</div><div class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery-1.4.2.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;</div><div class="line">	$(document).ready(function()&#123;</div><div class="line">		$(&apos;div.c1&apos;).click(function(e)&#123;alert(&apos;单击了div&apos;);&#125;);</div><div class="line">		$(&apos;div.c2&apos;).click(function(e)&#123;alert(&apos;单击了div&apos;);stopBubble(e);&#125;);</div><div class="line">		$(document).click(function(e)&#123;alert(&apos;单击了document&apos;);&#125;);</div><div class="line">		$(&apos;#txt1&apos;).val(&apos;123&apos;);</div><div class="line">		$(&apos;#txt1&apos;).click(function(e)&#123;stopBubble(e);&#125;);</div><div class="line">		$(&apos;#txt1&apos;).keydown(function(e)&#123;stopDefault(e);alert(&apos;你按下了键值&apos;+e.keyCode); &#125;);</div><div class="line">	&#125;)</div><div class="line">	 </div><div class="line">	function stopBubble(e) &#123; </div><div class="line">	//如果提供了事件对象，则这是一个非IE浏览器 </div><div class="line">	    if ( e &amp;&amp; e.stopPropagation ) </div><div class="line">	    //因此它支持W3C的stopPropagation()方法 </div><div class="line">	    e.stopPropagation(); </div><div class="line">	     else </div><div class="line">	    //否则，我们需要使用IE的方式来取消事件冒泡 </div><div class="line">	    window.event.cancelBubble = true; </div><div class="line">	&#125; </div><div class="line">	//阻止浏览器的默认行为 </div><div class="line">	function stopDefault( e ) &#123; </div><div class="line">	    //阻止默认浏览器动作(W3C) </div><div class="line">	    if ( e &amp;&amp; e.preventDefault ) </div><div class="line">	        e.preventDefault(); </div><div class="line">	    //IE中阻止函数器默认动作的方式 </div><div class="line">	    else </div><div class="line">	        window.event.returnValue = false; </div><div class="line">	    return false; </div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	body&#123;font-size:14px;&#125;</div><div class="line">	.c1&#123;font-family:&quot;Arial Unicode MS&quot;&#125;</div><div class="line">	.c2&#123;font-family:helvetica,simsun,arial,clean&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;/head&gt; </div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;c1&quot;&gt;测试的文字,这里是样式C1,单击以冒泡的形式触发事件.&lt;/div&gt;&lt;hr/&gt; </div><div class="line">	&lt;div class=&quot;c2&quot;&gt;测试的文字,这里是样式C2,单击以捕获的形式触发事件.&lt;/div&gt;&lt;hr/&gt;</div><div class="line">	&lt;div&gt;&lt;input id=&quot;txt1&quot; name=&quot;Text1&quot; type=&quot;text&quot; /&gt;&lt;/div&gt;&lt;hr/&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/06/Bubble/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/06/Bubble/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-05T05:14:17.000Z"><a href="/2016/12/05/tools/">2016-12-05</a></time>
       
       
@@ -77,43 +114,6 @@
         
         
     <a href="/2016/12/05/tools/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/05/tools/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/box/">2016-12-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/04/box/">display box</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-flex主要让子容器针对父容器的宽度按一定规则进行划分</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">&lt;article&gt;</div><div class="line">    &lt;section&gt;01&lt;/section&gt;</div><div class="line">    &lt;section&gt;02&lt;/section&gt;</div><div class="line">    &lt;section&gt;03&lt;/section&gt;</div><div class="line">&lt;/article&gt;</div><div class="line">css</div><div class="line">.wrap&#123;</div><div class="line">    width:600px;</div><div class="line">    height:200px;</div><div class="line">    display:-moz-box;</div><div class="line">    display:-webkit-box;</div><div class="line">    display:box;</div><div class="line">&#125;</div><div class="line">.sectionOne&#123;</div><div class="line">    background:orange;</div><div class="line">    -moz-box-flex:3;</div><div class="line">    -webkit-box-flex:3;</div><div class="line">    box-flex:3;</div><div class="line">&#125;</div><div class="line">.sectionTwo&#123;</div><div class="line">    background:purple;</div><div class="line">    -moz-box-flex:2;</div><div class="line">    -webkit-box-flex:2;</div><div class="line">    box-flex:2;</div><div class="line">&#125;</div><div class="line">.sectionThree&#123;</div><div class="line">    -moz-box-flex:1;</div><div class="line">    -webkit-box-flex:1;</div><div class="line">    box-flex:1;</div><div class="line">    background:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/04/box/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/box/" data-count-type="comments"></a>
 
       
       <div class="clearfix"></div>
@@ -173,6 +173,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/box/">2016-12-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/04/box/">display box</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-flex主要让子容器针对父容器的宽度按一定规则进行划分</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">&lt;article&gt;</div><div class="line">    &lt;section&gt;01&lt;/section&gt;</div><div class="line">    &lt;section&gt;02&lt;/section&gt;</div><div class="line">    &lt;section&gt;03&lt;/section&gt;</div><div class="line">&lt;/article&gt;</div><div class="line">css</div><div class="line">.wrap&#123;</div><div class="line">    width:600px;</div><div class="line">    height:200px;</div><div class="line">    display:-moz-box;</div><div class="line">    display:-webkit-box;</div><div class="line">    display:box;</div><div class="line">&#125;</div><div class="line">.sectionOne&#123;</div><div class="line">    background:orange;</div><div class="line">    -moz-box-flex:3;</div><div class="line">    -webkit-box-flex:3;</div><div class="line">    box-flex:3;</div><div class="line">&#125;</div><div class="line">.sectionTwo&#123;</div><div class="line">    background:purple;</div><div class="line">    -moz-box-flex:2;</div><div class="line">    -webkit-box-flex:2;</div><div class="line">    box-flex:2;</div><div class="line">&#125;</div><div class="line">.sectionThree&#123;</div><div class="line">    -moz-box-flex:1;</div><div class="line">    -webkit-box-flex:1;</div><div class="line">    box-flex:1;</div><div class="line">    background:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/04/box/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/box/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-02T11:31:21.000Z"><a href="/2016/12/02/hexo2/">2016-12-02</a></time>
       
       
@@ -214,52 +251,13 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-02T10:32:56.000Z"><a href="/2016/12/02/hexo1/">2016-12-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/02/hexo1/">hexo 本地代码创建</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="先保证本地安装"><a href="#先保证本地安装" class="headerlink" title="先保证本地安装"></a>先保证本地安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node</div><div class="line">npm install hexo</div><div class="line">npm install hexo-deployer-git</div></pre></td></tr></table></figure>
-<h3 id="在github-上创建密钥"><a href="#在github-上创建密钥" class="headerlink" title="在github 上创建密钥"></a>在github 上创建密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh 进入下看下是否已经有公钥，有就备份,然后删除</div><div class="line">git config --global user.name <span class="string">"xxx"</span></div><div class="line">git config --global user.email <span class="string">"xxx"</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx"</span></div><div class="line">vi id_rsa.pub  打开这个文件复制到github密钥里面</div><div class="line">在github上 setting -&gt; SSH keys </div><div class="line">验证是否连上： ssh -T git@github.com</div></pre></td></tr></table></figure>
-<h3 id="在本地初始化及安装"><a href="#在本地初始化及安装" class="headerlink" title="在本地初始化及安装"></a>在本地初始化及安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/xxx/xxx.github.io.git</div><div class="line"><span class="built_in">cd</span> xxx.github.io/</div><div class="line">hexo init</div><div class="line">git init</div><div class="line">vi _config.yml</div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>更多文件说明参考: <a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">连接1</a><br><a href="http://www.jianshu.com/p/70343b7c2fd3" target="_blank" rel="external">连接2</a></p>
-<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">├── _config.yml //网站的`配置`信息，您可以在此配置大部分的参数。</div><div class="line">├── package.json</div><div class="line">├── db.json // json格式的静态常量数据库 </div><div class="line">├── node_modules // Hexo的功能JavaScript文件</div><div class="line">├── public // 生成静态网页文件</div><div class="line">├── scaffolds //模版文件夹。当您新建文章时，Hexo会根据scaffold来建立文件。</div><div class="line">├── <span class="built_in">source</span> //资源文件夹是存放用户资源的地方。</div><div class="line">| ├── _drafts // 草稿文件夹</div><div class="line">| └── _posts // 文章文件夹</div><div class="line">└── themes //主题文件夹。Hexo会根据主题来生成静态页面。﻿​</div></pre></td></tr></table></figure>
-<p>详细更改配置等: <a href="http://www.mjiayou.com/2014/08/18/hexo-theme-modify-based-light/" target="_blank" rel="external">连接</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/02/hexo1/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/02/hexo1/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -283,14 +281,14 @@ function search(formname) {
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
 </div>
 
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
 </div>
 
 
@@ -298,7 +296,7 @@ function search(formname) {
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
+    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
   </div>
 </div>
 
