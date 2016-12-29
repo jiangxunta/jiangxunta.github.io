@@ -59,6 +59,133 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-26T12:45:49.000Z"><a href="/2016/12/26/react2/">2016-12-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/26/react2/">react2</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="react-JSX语法-数据流-组件"><a href="#react-JSX语法-数据流-组件" class="headerlink" title="react JSX语法 数据流 组件"></a>react JSX语法 数据流 组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">browser.js</div><div class="line">browser.js 的作用是将 JSX 语法转为 JavaScript 语法 </div><div class="line">&lt;!-- JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type=&quot;text/babel&quot; --&gt;</div><div class="line">&lt;script type=&quot;text/babel&quot;&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="react-js"><a href="#react-js" class="headerlink" title="react.js"></a>react.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">之前的react.js现在已经被分拆为react.js react-dom.js react-dom-server.js三个文件</div><div class="line">react包提供API</div><div class="line">使用ES6可以用这个组件 React.Component 定义一个组件</div><div class="line">React.createClass 创建一个组件类 并作出定义</div><div class="line">React.createElement 创建并指定一个新的基本类型 React.cloneElement</div><div class="line">React.createFactory 返回一个生成指定类型 ReactElements 的函数 </div><div class="line">React.isValidElement 验证一个对象是否为ReactElement，返回boolean值</div><div class="line">react包提供了一系列与DOM相关的API</div><div class="line">ReactDOM.render 渲染一个 ReactElement 到 DOM 中，放在 container 指定的 DOM 元素下，返回一个到该组件的引用。</div><div class="line">ReactDOM.unmountComponentAtNode 从 DOM 中移除已经挂载的 React 组件，清除相应的事件处理器和 state</div><div class="line">ReactDOM.findDOMNode</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">服务端渲染的几个 API 被独立出来，以下两个是常用的</div><div class="line">ReactDOMServer.renderToString</div><div class="line">ReactDOMServer.renderToStaticMarkup</div></pre></td></tr></table></figure>
+<h3 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">var MyList = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;ul&gt;</div><div class="line">        &#123;</div><div class="line">          this.props.list.map(function (child) &#123;</div><div class="line">            return &lt;li&gt;&#123;child&#125;&lt;/li&gt;</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">      &lt;/ul&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var TagList = [</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Facebook&lt;/a&gt;,</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Google&lt;/a&gt;</div><div class="line">];</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;MyList list=&#123;TagList&#125; /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">var MyData = [&apos;React&apos;, &apos;is&apos;, &apos;awesome&apos;],</div><div class="line">    MyStyles = &#123;</div><div class="line">      color: &quot;#333&quot;,</div><div class="line">      fontSize: &quot;40px&quot;,</div><div class="line">      fontWeight: &quot;bold&quot;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div style=&#123;MyStyles&#125;&gt;</div><div class="line">  &#123;</div><div class="line">    MyData.map(function (name) &#123;</div><div class="line">      return &lt;span&gt;&#123;name&#125; &lt;/span&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">render的方法中return的顶级元素只能是一个</div><div class="line">如果要定义样式的时候，不能这样去写</div><div class="line">// 不要出现类似的错误，style=&quot;opacity:&#123;this.state.opacity&#125;;&quot;</div><div class="line">使用 className 和 htmlFor 来替代对应的class 和 for</div></pre></td></tr></table></figure>
+<h3 id="编写组件-getInitialState-state"><a href="#编写组件-getInitialState-state" class="headerlink" title="编写组件 getInitialState state"></a>编写组件 getInitialState state</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 定义一个组件LikeButton</div><div class="line">var LikeButton = React.createClass(&#123;</div><div class="line">  // 给state定义初始值</div><div class="line">  getInitialState: function() &#123;</div><div class="line">    return &#123;liked: true&#125;;</div><div class="line">  &#125;,</div><div class="line">  // click事件的处理函数</div><div class="line">  handleClick: function(event) &#123;</div><div class="line">    this.setState(&#123;liked: !this.state.liked&#125;);</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">    var text = this.state.liked ? &apos;稀罕&apos; : &apos;讨厌&apos;;</div><div class="line">    return (</div><div class="line">      &lt;p onClick=&#123;this.handleClick&#125;&gt;</div><div class="line">        我&#123;text&#125;你.</div><div class="line">      &lt;/p&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;LikeButton /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="react数据流"><a href="#react数据流" class="headerlink" title="react数据流"></a>react数据流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在React中数据的流向是单向的，即从父节点流向子节点，这样就更方便组件的渲染（子组件只需要从父组件获取props渲染即可）</div><div class="line">组件内部有自己的状态，这些状态只能组件内部修改，保持独立性</div><div class="line">React组件本身很简单，可以把它看成就是一个函数，而这个函数有两个传参，props和state，调用这个函数后悔返回一个虚拟的DOM。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">实例</div><div class="line">/**</div><div class="line"> * [Counter]</div><div class="line"> * @param  &#123;Boolean&#125;                  [description]</div><div class="line"> * @param  &#123;[type]&#125;                   [description]</div><div class="line"> * @param  &#123;[type]&#125;                   [description]</div><div class="line"> * @return &#123;[type]&#125;                   [description]</div><div class="line"> */</div><div class="line">var Counter = React.createClass(&#123;</div><div class="line">  // 相当于是规范化的接口文档</div><div class="line">  propTypes: &#123;</div><div class="line">    name: React.PropTypes.string.isRequired,</div><div class="line">  &#125;,</div><div class="line">  // 定义初始化的state</div><div class="line">  getInitialState: function () &#123;</div><div class="line">    return &#123; clickCount: 0 &#125;;</div><div class="line">  &#125;,</div><div class="line">  // 定义一个处理点击的回调方法</div><div class="line">  handleClick: function () &#123;</div><div class="line">    this.setState(function(state) &#123;</div><div class="line">      return &#123;clickCount: state.clickCount + 1&#125;;</div><div class="line">    &#125;);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  render: function () &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;p&gt;&#123;this.props.name&#125;&lt;/p&gt;</div><div class="line">        &lt;h2 onClick=&#123;this.handleClick&#125;&gt;</div><div class="line">        点我点我! &lt;br /&gt;被戳次数: &#123;this.state.clickCount&#125;</div><div class="line">        &lt;/h2&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line"></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Counter name=&quot;myCounter&quot; /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">state</div><div class="line">我们可以将组件看成是一个状态机，每一个组件都有自己的state，改变组件可以使用setState或是replaceState，千万不要这样类似这样写 this.state.name = &quot;xxx&quot; 。</div><div class="line"></div><div class="line">PropTypes</div><div class="line">这是验证props的方式，类似于约定了一个接口文档。</div><div class="line"></div><div class="line">props</div><div class="line">通过props，可以把任意类型的数据传递给组件，当然，还可以使用 ... 来同时传递多个prop</div><div class="line"></div><div class="line">getDefaultProps和getInitialState</div><div class="line">分别是定义初始化props和state值的两个钩子函数，不一样的是，在组件的生命周期中，前者只会执行一次，具体下一部分细说。</div><div class="line"></div><div class="line">理解父组件和子组件之间的单向数据流动</div><div class="line">父组件通过props来向子组件传递数据</div><div class="line"></div><div class="line">理解state和props</div><div class="line">虽然state和prop都是存储数据的，但是要区分二者的区别：</div><div class="line"></div><div class="line">state存放的是流动的，变化的组件数据，而且，state只存在于组件的内部</div><div class="line">把props当成是组件的数据源，一般用来存放组件初始后不变的数据和属性</div><div class="line">需要提醒的是：</div><div class="line"></div><div class="line">不要将props的数据复制到state中去</div><div class="line">不要使用setProps改变组件的属性</div><div class="line">要慎用replaceState</div><div class="line">二者的结合则可完成组件的单向数据流动</div></pre></td></tr></table></figure>
+<h3 id="组件的复合"><a href="#组件的复合" class="headerlink" title="组件的复合"></a>组件的复合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">多个简单组件的嵌套,可以构成一个复杂的复合组件,实现复杂的交互逻辑</div><div class="line">// 定义一个头像avatar的组件</div><div class="line">var Avatar = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;ProfilePic link=&#123;this.props.link&#125; /&gt;</div><div class="line">        &lt;ProfileLink name=&#123;this.props.name&#125; /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">// 定义一个人物图片ProfilePic组件</div><div class="line">var ProfilePic = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;img src=&#123;this.props.link&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 定义一个人物链接ProfileLink组件</div><div class="line">var ProfileLink = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;a href=&#123;&apos;https://github.com/&apos; + this.props.name&#125;&gt;</div><div class="line">        &#123;this.props.name&#125;</div><div class="line">      &lt;/a&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 渲染到容器</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Avatar</div><div class="line">    name=&quot;GuoYongfeng&quot;</div><div class="line">    link=&quot;https://avatars2.githubusercontent.com/u/8686869?v=3&amp;s=460&quot;</div><div class="line">  /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/26/react2/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/26/react2/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-21T13:04:38.000Z"><a href="/2016/12/21/bower/">2016-12-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/21/bower/">bower</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="bower-安装及查看版本等"><a href="#bower-安装及查看版本等" class="headerlink" title="bower 安装及查看版本等"></a>bower 安装及查看版本等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在安装node的基础上</div><div class="line">npm install -g bower</div><div class="line">bower -v</div><div class="line">bower help</div></pre></td></tr></table></figure>
+<h3 id="bower的使用"><a href="#bower的使用" class="headerlink" title="bower的使用"></a>bower的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">使用了bower的项目都会在目录下有一个bower.json文件。在该文件同级目录下，使用如下命令即可安装相关依赖库。</div><div class="line">安装包</div><div class="line">bower install jquery</div><div class="line">更新包</div><div class="line">bower update jquery</div><div class="line">卸载包</div><div class="line">bower uninstall jquery</div><div class="line"></div><div class="line">.bowerrc 可以方便把安装的包放到 一个文件夹里面</div><div class="line">.bowerrc 文件可以如下写</div><div class="line">&#123;</div><div class="line">  &quot;directory&quot;: &quot;vendors&quot;</div><div class="line">&#125;</div><div class="line">把安装的包放到vendors文件夹里</div><div class="line">更多的配置查看地址：https://github.com/bower/spec/blob/master/config.md</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注意</div><div class="line">使用bower install jquery --save才会把jquery依赖记入到bower.json。如果不加--save就不会有</div><div class="line">要安装某个版本使用#，如安装juqery1.9.1，可以使用bower install jquery#1.9.1。</div><div class="line">除了用包名安装，也可以指定git地址，进行安装，如bower install https://github.com/jquery/jquery。</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/21/bower/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/bower/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-21T02:33:26.000Z"><a href="/2016/12/21/react1/">2016-12-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/21/react1/">react1</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="react-认识"><a href="#react-认识" class="headerlink" title="react 认识"></a>react 认识</h3><p>React是一个用于构建用户界面的JavaScript库，而不是一个MVC框架，但可以使用React作为MVC架构的View层轻易的在已有项目中使用。<br>ajax出现，实现页面局部刷新，但是复杂的用户交互及展现需要通过大量的DOM操作来完成，这让页面的性能以及开发的效率下降<br>前端性能优化:减少DOM元素、减少reflow和repaint、编码过程中尽量减少DOM的查询<br>React通过自己实现的DOM Diff算法，计算出虚拟页面当前版本和新版本之间的差异，最小化重绘，避免不必要的DOM操作，解决了这两个公认的前端性能瓶颈，实现高效DOM渲染。<br>React 从来没有说过 “React 比原生操作 DOM 快”。React 的基本思维模式是每次有变动就整个重新渲染整个应用。如果没有 Virtual DOM，简单来想就是直接重置 innerHTML。<br>在比较性能的时候，要分清楚初始渲染、小量数据更新、大量数据更新这些不同的场合。<br>不要天真地以为 Virtual DOM 就是快，diff 不是免费的，Virtual DOM 真正的价值从来都不是性能，而是它 1) 为函数式的 UI 编程方式打开了大门；2) 可以渲染到 DOM 以外的其他场景，如backend、native。</p>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>在业务开发中，遇到公共的模板部分，我们不得不将模板和规定的数据格式耦合在一起来实现组件。而在React中，我们可以使用JSX语法来封装组件，将组件的结构、数据逻辑甚至样式都聚合在一起，更加简单、明了、直观的定义组件。</p>
+<p>有了组件化的实现，我们可以很直观的将一个复杂的页面分割成若干个独立组件，再将这些独立组件组合完成一个复杂的页面。这样既减少了逻辑复杂度，又实现了代码的重用。<br>React认为一个组件应该具有如下的特征：</p>
+<p>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部，通过这样的组合方式，一个复杂的UI组件可以分拆成若干个简单的UI组件<br>可重用：每个组件都是具有独立功能的，它可以被使用在多个UI场景<br>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</p>
+<h3 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h3><p>在React中，数据的流向是从父节点到子节点的单向流动，这样可以使组件简单并且容易把握，因为子节点是无状态的，只需要从父节点获取props渲染即可。这样带来的收益是，顶层组件的某个prop改变了，React就会向下递归遍历整棵组件树，重新渲染所有使用到了这个属性的组件。</p>
+<p>单向数据流带来的几个重要的好处是：</p>
+<p>相比之前的资源重组实现的组件，单向数据流可以很好的完成组件间的数据通信，否则的话，我们需要写一个事件机制来处理这个事情。<br>大家可能会问，这所倡导的单向流动，那相对MVC或是MVVM框架的双向数据绑定简直是弱爆了。那么这里需要理解的是，这里的单向，是循环流动的单向，数据是持续更新的。双向数据绑定是优秀便捷的实现，这个需要用实现的成本和业务场景来考量二者了。<br>对于单向数据流目前已经有很好的类库实现了，如flux reflux redux等。</p>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p><a href="https://github.com/facebook/react" target="_blank" rel="external">github官方仓库</a><br><a href="https://facebook.github.io/react/" target="_blank" rel="external">react官网</a><br><a href="http://reactjs.cn/" target="_blank" rel="external">react中国官网</a></p>
+<p>架构及周边生态<br>架构<br>和其他类库或是框架结合使用<br>比如和backbone结合，弥补了backbone的薄弱的view层；<br>和angular结合，让组件的渲染更快<br>和flux相关类库结合<br>flux<br>reflux<br>redux<br>生态<br>使用webpack打包<br>和ES6结合来封装你的组件<br>测试相关<br>浏览器兼容性等问题是你在使用后不得不考虑的问题。</p>
+<h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><p>越是基础的东西，越是重要；越是原理的内容，越要去理清楚。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/21/react1/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/react1/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-18T13:24:00.000Z"><a href="/2016/12/18/compaty/">2016-12-18</a></time>
       
       
@@ -157,120 +284,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-05T05:14:17.000Z"><a href="/2016/12/05/tools/">2016-12-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/05/tools/">tools</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="比较工具"><a href="#比较工具" class="headerlink" title="比较工具"></a>比较工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Beyond_Compare-Mac-Trial</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/05/tools/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/05/tools/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/flex/">2016-12-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/04/flex/">深入理解 flex-grow &amp; flex-shrink &amp; flex-basis</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="flex属性-有兼容性（最好不用）"><a href="#flex属性-有兼容性（最好不用）" class="headerlink" title="flex属性 有兼容性（最好不用）"></a>flex属性 有兼容性（最好不用）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto</div></pre></td></tr></table></figure>
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">实例</div><div class="line">html</div><div class="line">&lt;div class=&quot;wrapper flex-grow&quot;&gt;</div><div class="line">    &lt;div&gt;A&lt;/div&gt;</div><div class="line">    &lt;div&gt;B&lt;/div&gt;</div><div class="line">    &lt;div&gt;C&lt;/div&gt;</div><div class="line">    &lt;div&gt;D&lt;/div&gt;</div><div class="line">    &lt;div&gt;E&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">css</div><div class="line">.wrapper &#123;</div><div class="line">    display: -webkit-flex;</div><div class="line">    display: flex;</div><div class="line">    width: 660px;</div><div class="line">    background-color: #eee;</div><div class="line">&#125;</div><div class="line">.wrapper div &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    text-align: center;</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(1)&#123;</div><div class="line">    background: rgb(0, 137, 250);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(2) &#123;</div><div class="line">    flex-grow: 1;</div><div class="line">    width: 120px;</div><div class="line">    background: rgb(251, 6, 6);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(3) &#123;</div><div class="line">    flex-grow: 2;</div><div class="line">    width: 130px;</div><div class="line">    background: rgb(0, 188, 212);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(4)&#123;</div><div class="line">    background: rgb(233, 30, 99);</div><div class="line">&#125;</div><div class="line">.wrapper div:nth-child(5)&#123;</div><div class="line">    background: rgb(0, 150, 136);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">定义项目的放大比例，默认值为0，就算存在剩余空间，也不会放大</div><div class="line">flex-grow的默认值为0，如果没有定义该属性，是不会拥有分配剩余空间的权利的。A, B, C, D, E 的</div><div class="line">宽度分别是 100, 120, 130, 100, 100，父级的宽度是660，父级宽减去子级的全部宽度，这样剩余空</div><div class="line">间就是110。例子中B, C定义了flex-grow，分别是1，2，那剩余空间分成3份，B1份，C2份，比例就是</div><div class="line">1：2，分配计算出来的值就是B :36.666666666666664, C：73.33333333333333。这个时候剩余空</div><div class="line">间就被计算出来了，相加后的结果就是B：156.66666666666666，C：203.33333333333331。</div><div class="line"></div><div class="line">B的计算公式：120 + (110 / 3) * 1</div><div class="line"></div><div class="line">C的计算公式: 130 + (110 / 3) * 2</div></pre></td></tr></table></figure>
-<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">定义项目的缩小比例，默认值为1，注意前提是空间不足的情况下</div><div class="line">实例</div><div class="line">html</div><div class="line">&lt;div class=&quot;wrapper flex-shrink&quot;&gt;</div><div class="line">  &lt;div&gt;A&lt;/div&gt;</div><div class="line">  &lt;div&gt;B&lt;/div&gt;</div><div class="line">  &lt;div&gt;C&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">css</div><div class="line">.wrapper &#123;</div><div class="line">  display: flex;</div><div class="line">  width: 300px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(1)&#123;</div><div class="line">  background: rgb(0, 137, 250);</div><div class="line">  flex-basis: 155px;</div><div class="line">  flex-shrink: 2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(2)&#123;</div><div class="line">  background: rgb(233, 30, 99);</div><div class="line">  flex-basis: 200px;</div><div class="line">  flex-shrink: 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.wrapper div:nth-child(3)&#123;</div><div class="line">  background: rgb(0, 150, 136);</div><div class="line">  flex-basis: 50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">这里 A, B, C 的宽度分别是155, 200, 50，(注意这里的宽度我是用flex-basis代替的，在这个例子中和width的作用是一样的)。 父级宽度是300，计算超出的空间就是 -105，这样超出的 105px 就要被 A, B, C 消化掉，比例是2：1：1。</div><div class="line"></div><div class="line">如何消化 ？ 首先是每个项目的wdith值乘以flex-shrink值求积，</div><div class="line"></div><div class="line">A：(155 * 2) = 310</div><div class="line">B：(200 * 1) = 200</div><div class="line">C：(50 * 1) = 50。</div><div class="line"></div><div class="line">然后再求和所有项目的乘积。</div><div class="line"></div><div class="line">(310 + 200 + 50) = 560</div><div class="line"></div><div class="line">得到求占比之后还要乘以要腾出的空间。</div><div class="line"></div><div class="line">A：(310 / 560) * 105 = 58.125</div><div class="line">B：(200 / 560) * 105 = 37.5</div><div class="line">C：(50 / 560) * 105 = 9.375</div><div class="line"></div><div class="line">得到每一项要腾出的空间後然後</div><div class="line"></div><div class="line">A：(155 - 58.125) = 96.875</div><div class="line">B：(200 - 37.5) = 162.5</div><div class="line">C：(50 - 9.375) = 40.625</div><div class="line">好了，这样就得出计算后的宽度了。</div></pre></td></tr></table></figure>
-<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">和width一样，他的默认值为auto，把上面几个例子换成width也是一样的。当然工作中最好用flex-basis，更符合规范。</div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果父级的空间足够：flex-grow有效，flex-shrink无效。</div><div class="line">如果父级的空间不够：flex-shrink 有效，flex-grow无效。</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/04/flex/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/flex/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-04T13:37:22.000Z"><a href="/2016/12/04/box/">2016-12-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/04/box/">display box</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="box-flex属性"><a href="#box-flex属性" class="headerlink" title="box-flex属性"></a>box-flex属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-flex主要让子容器针对父容器的宽度按一定规则进行划分</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">html</div><div class="line">&lt;article&gt;</div><div class="line">    &lt;section&gt;01&lt;/section&gt;</div><div class="line">    &lt;section&gt;02&lt;/section&gt;</div><div class="line">    &lt;section&gt;03&lt;/section&gt;</div><div class="line">&lt;/article&gt;</div><div class="line">css</div><div class="line">.wrap&#123;</div><div class="line">    width:600px;</div><div class="line">    height:200px;</div><div class="line">    display:-moz-box;</div><div class="line">    display:-webkit-box;</div><div class="line">    display:box;</div><div class="line">&#125;</div><div class="line">.sectionOne&#123;</div><div class="line">    background:orange;</div><div class="line">    -moz-box-flex:3;</div><div class="line">    -webkit-box-flex:3;</div><div class="line">    box-flex:3;</div><div class="line">&#125;</div><div class="line">.sectionTwo&#123;</div><div class="line">    background:purple;</div><div class="line">    -moz-box-flex:2;</div><div class="line">    -webkit-box-flex:2;</div><div class="line">    box-flex:2;</div><div class="line">&#125;</div><div class="line">.sectionThree&#123;</div><div class="line">    -moz-box-flex:1;</div><div class="line">    -webkit-box-flex:1;</div><div class="line">    box-flex:1;</div><div class="line">    background:green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/04/box/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/box/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -301,14 +314,14 @@ function search(formname) {
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
 </div>
 
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
 </div>
 
 
@@ -316,7 +329,7 @@ function search(formname) {
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
+    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
   </div>
 </div>
 

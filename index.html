@@ -59,6 +59,129 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-29T08:28:30.000Z"><a href="/2016/12/29/react7/">2016-12-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/29/react7/">package.json</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="package-json概述"><a href="#package-json概述" class="headerlink" title="package.json概述"></a>package.json概述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。 </div><div class="line">package.json文件内部就是一个JSON对象。 </div><div class="line">npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。</div></pre></td></tr></table></figure>
+<h3 id="创建package-json"><a href="#创建package-json" class="headerlink" title="创建package.json"></a>创建package.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">手动创建 </div><div class="line">npm命令创建</div><div class="line">$ npm init</div><div class="line">一个更完整的package.json文件</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &quot;Hello World&quot;,</div><div class="line">    &quot;version&quot;: &quot;0.0.1&quot;,</div><div class="line">    &quot;author&quot;: &quot;张三&quot;,</div><div class="line">    &quot;description&quot;: &quot;第一个node.js程序&quot;,</div><div class="line">    &quot;keywords&quot;:[&quot;node.js&quot;,&quot;javascript&quot;],</div><div class="line">    &quot;repository&quot;: &#123;</div><div class="line">        &quot;type&quot;: &quot;git&quot;,</div><div class="line">        &quot;url&quot;: &quot;https://path/to/url&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;license&quot;:&quot;MIT&quot;,</div><div class="line">    &quot;engines&quot;: &#123;&quot;node&quot;: &quot;0.10.x&quot;&#125;,</div><div class="line">    &quot;bugs&quot;:&#123;&quot;url&quot;:&quot;http://path/to/bug&quot;,&quot;email&quot;:&quot;bug@example.com&quot;&#125;,</div><div class="line">    &quot;contributors&quot;:[&#123;&quot;name&quot;:&quot;李四&quot;,&quot;email&quot;:&quot;lisi@example.com&quot;&#125;],</div><div class="line">    &quot;scripts&quot;: &#123;</div><div class="line">        &quot;start&quot;: &quot;node index.js&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;dependencies&quot;: &#123;</div><div class="line">        &quot;express&quot;: &quot;latest&quot;,</div><div class="line">        &quot;mongoose&quot;: &quot;~3.8.3&quot;,</div><div class="line">        &quot;handlebars-runtime&quot;: &quot;~1.0.12&quot;,</div><div class="line">        &quot;express3-handlebars&quot;: &quot;~0.5.0&quot;,</div><div class="line">        &quot;MD5&quot;: &quot;~1.2.0&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;devDependencies&quot;: &#123;</div><div class="line">        &quot;bower&quot;: &quot;~1.2.8&quot;,</div><div class="line">        &quot;grunt&quot;: &quot;~0.4.1&quot;,</div><div class="line">        &quot;grunt-contrib-concat&quot;: &quot;~0.3.0&quot;,</div><div class="line">        &quot;grunt-contrib-jshint&quot;: &quot;~0.7.2&quot;,</div><div class="line">        &quot;grunt-contrib-uglify&quot;: &quot;~0.2.7&quot;,</div><div class="line">        &quot;grunt-contrib-clean&quot;: &quot;~0.5.0&quot;,</div><div class="line">        &quot;browserify&quot;: &quot;2.36.1&quot;,</div><div class="line">        &quot;grunt-browserify&quot;: &quot;~1.3.0&quot;,</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">下面详细解释package.json文件的各个字段。</div><div class="line"></div><div class="line">4、name </div><div class="line">命名规则: </div><div class="line">1)name必须小于等于214个字节，包括前缀名称在内（如 xxx/xxxmodule）。 </div><div class="line">2)name不能以”_”或”.”开头 </div><div class="line">3)不能含有大写字母 </div><div class="line">4)name会成为url的一部分，不能含有url非法字符</div><div class="line"></div><div class="line">下面是官网文档的一些建议： </div><div class="line">1)不要使用和node核心模块一样的名称 </div><div class="line">2)name中不要含有”js”和”node”。 It’s assumed that it’s js, since you’re writing a package.json file, and you can specify the engine using the “engines” field. (See below.) </div><div class="line">3)name属性会成为模块url、命令行中的一个参数或者一个文件夹名称，任何非url安全的字符在name中都不能使用，也不能以”_”或”.”开头 </div><div class="line">4)name属性也许会被写在require()的参数中，所以最好取个简短而语义化的值。 </div><div class="line">5)创建一个模块前可以先到后边的网址查查name是否已经被占用. https://www.npmjs.com/</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/29/react7/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/29/react7/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-29T07:45:42.000Z"><a href="/2016/12/29/react6/">2016-12-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/29/react6/">webpack.config.js参数详解</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>webpack.config.js文件通常放在项目的根目录中，它本身也是一个标准的Commonjs规范的模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">module.exports = &#123;</div><div class="line">    entry: [</div><div class="line">        &apos;webpack/hot/only-dev-server&apos;,</div><div class="line">        &apos;./js/app.js&apos;</div><div class="line">    ],</div><div class="line">    output: &#123;</div><div class="line">        path: &apos;./build&apos;,</div><div class="line">        filename: &apos;bundle.js&apos;</div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loaders: [</div><div class="line">        &#123; test: /\.js?$/, loaders: [&apos;react-hot&apos;, &apos;babel&apos;], exclude:     /node_modules/ &#125;,</div><div class="line">        &#123; test: /\.js$/, exclude: /node_modules/, loader: &apos;babel-loader&apos;&#125;,</div><div class="line">        &#123; test: /\.css$/, loader: &quot;style!css&quot; &#125;,</div><div class="line">        &#123;test: /\.less/,loader: &apos;style-loader!css-loader!less-loader&apos;&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    resolve:&#123;</div><div class="line">        extensions:[&apos;&apos;,&apos;.js&apos;,&apos;.json&apos;]</div><div class="line">    &#125;,</div><div class="line">    plugins: [</div><div class="line">        new webpack.NoErrorsPlugin()</div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">entry可以是个字符串或数组或者是对象。 </div><div class="line">当entry是个字符串的时候，用来定义入口文件：</div><div class="line">entry: &apos;./js/main.js&apos;</div><div class="line">当entry是个数组的时候，里面同样包含入口js文件，另外一个参数可以是用来配置webpack提供的一个静态资源服务器，webpack-dev-server。webpack-dev-server会监控项目中每一个文件的变化，实时的进行构建，并且自动刷新页面：</div><div class="line"></div><div class="line">entry: [</div><div class="line">    &apos;webpack/hot/only-dev-server&apos;,</div><div class="line">    &apos;./js/app.js&apos;</div><div class="line">]</div><div class="line">当entry是个对象的时候，我们可以将不同的文件构建成不同的文件，按需使用，比如在我的hello页面中只要\引入hello.js即可：</div><div class="line">entry: &#123;</div><div class="line">    hello: &apos;./js/hello.js&apos;,</div><div class="line">    form: &apos;./js/form.js&apos;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">output参数是个对象，用于定义构建后的文件的输出。其中包含path和filename：</div><div class="line">output: &#123;</div><div class="line">    path: &apos;./build&apos;,</div><div class="line">    filename: &apos;bundle.js&apos;</div><div class="line">&#125;</div><div class="line">当我们在entry中定义构建多个文件时，filename可以对应的更改为[name].js用于定义不同文件构建后的名字。</div></pre></td></tr></table></figure>
+<h3 id="module"><a href="#module" class="headerlink" title="module"></a>module</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">关于模块的加载相关，我们就定义在module.loaders中。这里通过正则表达式去匹配不同后缀的文件名，然后给它们定义不同的加载器。比如说给less文件定义串联的三个加载器（！用来定义级联关系）：</div><div class="line">module: &#123;</div><div class="line">    loaders: [</div><div class="line">        &#123; test: /\.js?$/, loaders: [&apos;react-hot&apos;, &apos;babel&apos;], exclude: /node_modules/ &#125;,</div><div class="line">        &#123; test: /\.js$/, exclude: /node_modules/, loader: &apos;babel-loader&apos;&#125;,</div><div class="line">        &#123; test: /\.css$/, loader: &quot;style!css&quot; &#125;,</div><div class="line">        &#123; test: /\.less/, loader: &apos;style-loader!css-loader!less-loader&apos;&#125;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line">此外，还可以添加用来定义png、jpg这样的图片资源在小于10k时自动处理为base64图片的加载器：</div><div class="line">&#123; test: /\.(png|jpg)$/,loader: &apos;url-loader?limit=10000&apos;&#125;</div><div class="line">给css和less还有图片添加了loader之后，我们不仅可以像在node中那样require js文件了，我们还可以require css、less甚至图片文件：</div><div class="line">require(&apos;./bootstrap.css&apos;);</div><div class="line">require(&apos;./myapp.less&apos;);</div><div class="line">var img = document.createElement(&apos;img&apos;);</div><div class="line">img.src = require(&apos;./glyph.png&apos;);</div><div class="line">但是需要知道的是，这样require来的文件会内联到 js bundle中。如果我们需要把保留require的写法又想把css文件单独拿出来，可以使用下面提到的[extract-text-webpack-plugin]插件。 </div><div class="line">在上面示例代码中配置的第一个loaders我们可以看到一个叫做React-hot的加载器。我的项目是用来学习react写相关代码的，所以配置了一个react-hot加载器，通过它，可以实现对react组件的热替换。我们已经在entry参数中配置了webpack/hot/only-dev-server,所以我们只要在启动webpack开发服务器时开启–hot参数，就可以使用react-hot-loader了。在package.json文件中这样定义：</div><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">     &quot;start&quot;: &quot;webpack-dev-server --hot --progress --colors&quot;,</div><div class="line">     &quot;build&quot;: &quot;webpack --progress --colors&quot;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">webpack在构建包的时候会按目录的进行文件的查找，resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀：</div><div class="line">resolve:&#123;</div><div class="line">    extensions:[&apos;&apos;,&apos;.js&apos;,&apos;.json&apos;]</div><div class="line">&#125;</div><div class="line">然后我们想要加载一个js文件时，只要require(‘common’)就可以加载common.js文件了。</div></pre></td></tr></table></figure>
+<h3 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">当我们想在项目中require一些其他的类库或者API，而又不想让这些类库的源码被构建到运行时文件中，这在实际开发中很有必要。此时我们就可以通过配置externals参数来解决这个问题：</div><div class="line">externals: &#123;</div><div class="line">    &quot;jquery&quot;: &quot;jQuery&quot;</div><div class="line">&#125;</div><div class="line">这样我们就可以放心的在项目中使用这些API了：var jQuery = require(“jquery”);</div></pre></td></tr></table></figure>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">当我们在require一个模块的时候，如果在require中包含变量，像这样：</div><div class="line">require(&quot;./mods/&quot; + name + &quot;.js&quot;);</div><div class="line">那么在编译的时候我们是不能知道具体的模块的。但这个时候，webpack也会为我们做些分析工作：</div><div class="line">1.分析目录：’./mods’； </div><div class="line">2.提取正则表达式：’/^.*.js$/’；</div><div class="line"></div><div class="line">于是这个时候为了更好地配合wenpack进行编译，我们可以给它指明路径，像在cake-webpack-config中所做的那样（我们在这里先忽略abcoption的作用）：</div><div class="line">var currentBase = process.cwd();</div><div class="line">var context = abcOptions.options.context ? abcOptions.options.context : </div><div class="line">path.isAbsolute(entryDir) ? entryDir : path.join(currentBase, entryDir);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/29/react6/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/29/react6/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-29T07:42:43.000Z"><a href="/2016/12/29/react5/">2016-12-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/29/react5/">node path 对象</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="NodeJS中的Path对象，用于处理目录的对象，提高开发效率。"><a href="#NodeJS中的Path对象，用于处理目录的对象，提高开发效率。" class="headerlink" title="NodeJS中的Path对象，用于处理目录的对象，提高开发效率。"></a>NodeJS中的Path对象，用于处理目录的对象，提高开发效率。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">引入path对象</div><div class="line">var path = require(&apos;path&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">格式化路径 </div><div class="line">path.normalize(p) </div><div class="line">将不符合规范的路径格式化，简化开发人员中处理各种复杂的路径判断</div><div class="line">path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;);  </div><div class="line">// returns   </div><div class="line">&apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">路径联合 </div><div class="line">path.join([path1], [path2], […]) </div><div class="line">将所有名称用path.seq串联起来，然后用normailze格式化</div><div class="line"></div><div class="line">path.join(&apos;///foo&apos;, &apos;bar&apos;, &apos;//baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;);  </div><div class="line">// returns   </div><div class="line">&apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">路径寻航 </div><div class="line">path.resolve([from …], to) </div><div class="line">相当于不断的调用系统的cd命令</div><div class="line"></div><div class="line">path.resolve(&apos;foo/bar&apos;, &apos;/tmp/file/&apos;, &apos;..&apos;, &apos;a/../subfile&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">相对路径 </div><div class="line">path.relative(from, to) </div><div class="line">返回某个路径下相对于另一个路径的相对位置串，相当于：path.resolve(from, path.relative(from, to)) == path.resolve(to)</div><div class="line"></div><div class="line">path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;..\\..\\impl\\bbb&apos;  </div><div class="line"></div><div class="line">path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;../../impl/bbb&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">文件夹名称 </div><div class="line">path.dirname(p) </div><div class="line">返回路径的所在的文件夹名称</div><div class="line"></div><div class="line">path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">文件名称 </div><div class="line">path.basename(p, [ext]) </div><div class="line">返回指定的文件名，返回结果可排除[ext]后缀字符串</div><div class="line"></div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;quux.html&apos;  </div><div class="line"></div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;quux&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">扩展名称 </div><div class="line">path.extname(p) </div><div class="line">返回指定文件名的扩展名称</div><div class="line"></div><div class="line">path.extname(&apos;index.html&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;.html&apos;  </div><div class="line"></div><div class="line">path.extname(&apos;index.&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;.&apos;  </div><div class="line"></div><div class="line">path.extname(&apos;index&apos;)  </div><div class="line">// returns  </div><div class="line">&apos;&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">路径分隔符 </div><div class="line">path.sep </div><div class="line">获取文件路径的分隔符，主要是与操作系统相关 </div><div class="line">window:</div><div class="line"></div><div class="line">&apos;foo\\bar\\baz&apos;.split(path.sep)  </div><div class="line">// returns  </div><div class="line">[&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;] </div><div class="line">Linux:</div><div class="line"></div><div class="line">&apos;foo/bar/baz&apos;.split(path.sep)  </div><div class="line">// returns  </div><div class="line">[&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/29/react5/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/29/react5/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-28T04:15:31.000Z"><a href="/2016/12/28/react4/">2016-12-28</a></time>
       
       
@@ -132,133 +255,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-26T12:45:49.000Z"><a href="/2016/12/26/react2/">2016-12-26</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/26/react2/">react2</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="react-JSX语法-数据流-组件"><a href="#react-JSX语法-数据流-组件" class="headerlink" title="react JSX语法 数据流 组件"></a>react JSX语法 数据流 组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">browser.js</div><div class="line">browser.js 的作用是将 JSX 语法转为 JavaScript 语法 </div><div class="line">&lt;!-- JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type=&quot;text/babel&quot; --&gt;</div><div class="line">&lt;script type=&quot;text/babel&quot;&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h3 id="react-js"><a href="#react-js" class="headerlink" title="react.js"></a>react.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">之前的react.js现在已经被分拆为react.js react-dom.js react-dom-server.js三个文件</div><div class="line">react包提供API</div><div class="line">使用ES6可以用这个组件 React.Component 定义一个组件</div><div class="line">React.createClass 创建一个组件类 并作出定义</div><div class="line">React.createElement 创建并指定一个新的基本类型 React.cloneElement</div><div class="line">React.createFactory 返回一个生成指定类型 ReactElements 的函数 </div><div class="line">React.isValidElement 验证一个对象是否为ReactElement，返回boolean值</div><div class="line">react包提供了一系列与DOM相关的API</div><div class="line">ReactDOM.render 渲染一个 ReactElement 到 DOM 中，放在 container 指定的 DOM 元素下，返回一个到该组件的引用。</div><div class="line">ReactDOM.unmountComponentAtNode 从 DOM 中移除已经挂载的 React 组件，清除相应的事件处理器和 state</div><div class="line">ReactDOM.findDOMNode</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">服务端渲染的几个 API 被独立出来，以下两个是常用的</div><div class="line">ReactDOMServer.renderToString</div><div class="line">ReactDOMServer.renderToStaticMarkup</div></pre></td></tr></table></figure>
-<h3 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">var MyList = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;ul&gt;</div><div class="line">        &#123;</div><div class="line">          this.props.list.map(function (child) &#123;</div><div class="line">            return &lt;li&gt;&#123;child&#125;&lt;/li&gt;</div><div class="line">          &#125;)</div><div class="line">        &#125;</div><div class="line">      &lt;/ul&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var TagList = [</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Facebook&lt;/a&gt;,</div><div class="line">  &lt;a href=&quot;#&quot;&gt;Google&lt;/a&gt;</div><div class="line">];</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;MyList list=&#123;TagList&#125; /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">var MyData = [&apos;React&apos;, &apos;is&apos;, &apos;awesome&apos;],</div><div class="line">    MyStyles = &#123;</div><div class="line">      color: &quot;#333&quot;,</div><div class="line">      fontSize: &quot;40px&quot;,</div><div class="line">      fontWeight: &quot;bold&quot;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div style=&#123;MyStyles&#125;&gt;</div><div class="line">  &#123;</div><div class="line">    MyData.map(function (name) &#123;</div><div class="line">      return &lt;span&gt;&#123;name&#125; &lt;/span&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div><div class="line"></div><div class="line">render的方法中return的顶级元素只能是一个</div><div class="line">如果要定义样式的时候，不能这样去写</div><div class="line">// 不要出现类似的错误，style=&quot;opacity:&#123;this.state.opacity&#125;;&quot;</div><div class="line">使用 className 和 htmlFor 来替代对应的class 和 for</div></pre></td></tr></table></figure>
-<h3 id="编写组件-getInitialState-state"><a href="#编写组件-getInitialState-state" class="headerlink" title="编写组件 getInitialState state"></a>编写组件 getInitialState state</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 定义一个组件LikeButton</div><div class="line">var LikeButton = React.createClass(&#123;</div><div class="line">  // 给state定义初始值</div><div class="line">  getInitialState: function() &#123;</div><div class="line">    return &#123;liked: true&#125;;</div><div class="line">  &#125;,</div><div class="line">  // click事件的处理函数</div><div class="line">  handleClick: function(event) &#123;</div><div class="line">    this.setState(&#123;liked: !this.state.liked&#125;);</div><div class="line">  &#125;,</div><div class="line">  render: function() &#123;</div><div class="line">    var text = this.state.liked ? &apos;稀罕&apos; : &apos;讨厌&apos;;</div><div class="line">    return (</div><div class="line">      &lt;p onClick=&#123;this.handleClick&#125;&gt;</div><div class="line">        我&#123;text&#125;你.</div><div class="line">      &lt;/p&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;LikeButton /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-<h3 id="react数据流"><a href="#react数据流" class="headerlink" title="react数据流"></a>react数据流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在React中数据的流向是单向的，即从父节点流向子节点，这样就更方便组件的渲染（子组件只需要从父组件获取props渲染即可）</div><div class="line">组件内部有自己的状态，这些状态只能组件内部修改，保持独立性</div><div class="line">React组件本身很简单，可以把它看成就是一个函数，而这个函数有两个传参，props和state，调用这个函数后悔返回一个虚拟的DOM。</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">实例</div><div class="line">/**</div><div class="line"> * [Counter]</div><div class="line"> * @param  &#123;Boolean&#125;                  [description]</div><div class="line"> * @param  &#123;[type]&#125;                   [description]</div><div class="line"> * @param  &#123;[type]&#125;                   [description]</div><div class="line"> * @return &#123;[type]&#125;                   [description]</div><div class="line"> */</div><div class="line">var Counter = React.createClass(&#123;</div><div class="line">  // 相当于是规范化的接口文档</div><div class="line">  propTypes: &#123;</div><div class="line">    name: React.PropTypes.string.isRequired,</div><div class="line">  &#125;,</div><div class="line">  // 定义初始化的state</div><div class="line">  getInitialState: function () &#123;</div><div class="line">    return &#123; clickCount: 0 &#125;;</div><div class="line">  &#125;,</div><div class="line">  // 定义一个处理点击的回调方法</div><div class="line">  handleClick: function () &#123;</div><div class="line">    this.setState(function(state) &#123;</div><div class="line">      return &#123;clickCount: state.clickCount + 1&#125;;</div><div class="line">    &#125;);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  render: function () &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;p&gt;&#123;this.props.name&#125;&lt;/p&gt;</div><div class="line">        &lt;h2 onClick=&#123;this.handleClick&#125;&gt;</div><div class="line">        点我点我! &lt;br /&gt;被戳次数: &#123;this.state.clickCount&#125;</div><div class="line">        &lt;/h2&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line"></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Counter name=&quot;myCounter&quot; /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">state</div><div class="line">我们可以将组件看成是一个状态机，每一个组件都有自己的state，改变组件可以使用setState或是replaceState，千万不要这样类似这样写 this.state.name = &quot;xxx&quot; 。</div><div class="line"></div><div class="line">PropTypes</div><div class="line">这是验证props的方式，类似于约定了一个接口文档。</div><div class="line"></div><div class="line">props</div><div class="line">通过props，可以把任意类型的数据传递给组件，当然，还可以使用 ... 来同时传递多个prop</div><div class="line"></div><div class="line">getDefaultProps和getInitialState</div><div class="line">分别是定义初始化props和state值的两个钩子函数，不一样的是，在组件的生命周期中，前者只会执行一次，具体下一部分细说。</div><div class="line"></div><div class="line">理解父组件和子组件之间的单向数据流动</div><div class="line">父组件通过props来向子组件传递数据</div><div class="line"></div><div class="line">理解state和props</div><div class="line">虽然state和prop都是存储数据的，但是要区分二者的区别：</div><div class="line"></div><div class="line">state存放的是流动的，变化的组件数据，而且，state只存在于组件的内部</div><div class="line">把props当成是组件的数据源，一般用来存放组件初始后不变的数据和属性</div><div class="line">需要提醒的是：</div><div class="line"></div><div class="line">不要将props的数据复制到state中去</div><div class="line">不要使用setProps改变组件的属性</div><div class="line">要慎用replaceState</div><div class="line">二者的结合则可完成组件的单向数据流动</div></pre></td></tr></table></figure>
-<h3 id="组件的复合"><a href="#组件的复合" class="headerlink" title="组件的复合"></a>组件的复合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">多个简单组件的嵌套,可以构成一个复杂的复合组件,实现复杂的交互逻辑</div><div class="line">// 定义一个头像avatar的组件</div><div class="line">var Avatar = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;ProfilePic link=&#123;this.props.link&#125; /&gt;</div><div class="line">        &lt;ProfileLink name=&#123;this.props.name&#125; /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">// 定义一个人物图片ProfilePic组件</div><div class="line">var ProfilePic = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;img src=&#123;this.props.link&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 定义一个人物链接ProfileLink组件</div><div class="line">var ProfileLink = React.createClass(&#123;</div><div class="line">  render: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt;a href=&#123;&apos;https://github.com/&apos; + this.props.name&#125;&gt;</div><div class="line">        &#123;this.props.name&#125;</div><div class="line">      &lt;/a&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 渲染到容器</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Avatar</div><div class="line">    name=&quot;GuoYongfeng&quot;</div><div class="line">    link=&quot;https://avatars2.githubusercontent.com/u/8686869?v=3&amp;s=460&quot;</div><div class="line">  /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/26/react2/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/26/react2/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-21T13:04:38.000Z"><a href="/2016/12/21/bower/">2016-12-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/21/bower/">bower</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="bower-安装及查看版本等"><a href="#bower-安装及查看版本等" class="headerlink" title="bower 安装及查看版本等"></a>bower 安装及查看版本等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在安装node的基础上</div><div class="line">npm install -g bower</div><div class="line">bower -v</div><div class="line">bower help</div></pre></td></tr></table></figure>
-<h3 id="bower的使用"><a href="#bower的使用" class="headerlink" title="bower的使用"></a>bower的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">使用了bower的项目都会在目录下有一个bower.json文件。在该文件同级目录下，使用如下命令即可安装相关依赖库。</div><div class="line">安装包</div><div class="line">bower install jquery</div><div class="line">更新包</div><div class="line">bower update jquery</div><div class="line">卸载包</div><div class="line">bower uninstall jquery</div><div class="line"></div><div class="line">.bowerrc 可以方便把安装的包放到 一个文件夹里面</div><div class="line">.bowerrc 文件可以如下写</div><div class="line">&#123;</div><div class="line">  &quot;directory&quot;: &quot;vendors&quot;</div><div class="line">&#125;</div><div class="line">把安装的包放到vendors文件夹里</div><div class="line">更多的配置查看地址：https://github.com/bower/spec/blob/master/config.md</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注意</div><div class="line">使用bower install jquery --save才会把jquery依赖记入到bower.json。如果不加--save就不会有</div><div class="line">要安装某个版本使用#，如安装juqery1.9.1，可以使用bower install jquery#1.9.1。</div><div class="line">除了用包名安装，也可以指定git地址，进行安装，如bower install https://github.com/jquery/jquery。</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/21/bower/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/bower/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-21T02:33:26.000Z"><a href="/2016/12/21/react1/">2016-12-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/21/react1/">react1</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="react-认识"><a href="#react-认识" class="headerlink" title="react 认识"></a>react 认识</h3><p>React是一个用于构建用户界面的JavaScript库，而不是一个MVC框架，但可以使用React作为MVC架构的View层轻易的在已有项目中使用。<br>ajax出现，实现页面局部刷新，但是复杂的用户交互及展现需要通过大量的DOM操作来完成，这让页面的性能以及开发的效率下降<br>前端性能优化:减少DOM元素、减少reflow和repaint、编码过程中尽量减少DOM的查询<br>React通过自己实现的DOM Diff算法，计算出虚拟页面当前版本和新版本之间的差异，最小化重绘，避免不必要的DOM操作，解决了这两个公认的前端性能瓶颈，实现高效DOM渲染。<br>React 从来没有说过 “React 比原生操作 DOM 快”。React 的基本思维模式是每次有变动就整个重新渲染整个应用。如果没有 Virtual DOM，简单来想就是直接重置 innerHTML。<br>在比较性能的时候，要分清楚初始渲染、小量数据更新、大量数据更新这些不同的场合。<br>不要天真地以为 Virtual DOM 就是快，diff 不是免费的，Virtual DOM 真正的价值从来都不是性能，而是它 1) 为函数式的 UI 编程方式打开了大门；2) 可以渲染到 DOM 以外的其他场景，如backend、native。</p>
-<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>在业务开发中，遇到公共的模板部分，我们不得不将模板和规定的数据格式耦合在一起来实现组件。而在React中，我们可以使用JSX语法来封装组件，将组件的结构、数据逻辑甚至样式都聚合在一起，更加简单、明了、直观的定义组件。</p>
-<p>有了组件化的实现，我们可以很直观的将一个复杂的页面分割成若干个独立组件，再将这些独立组件组合完成一个复杂的页面。这样既减少了逻辑复杂度，又实现了代码的重用。<br>React认为一个组件应该具有如下的特征：</p>
-<p>可组合：一个组件可以和其他的组件一起使用或者可以直接嵌套在另一个组件内部，通过这样的组合方式，一个复杂的UI组件可以分拆成若干个简单的UI组件<br>可重用：每个组件都是具有独立功能的，它可以被使用在多个UI场景<br>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</p>
-<h3 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h3><p>在React中，数据的流向是从父节点到子节点的单向流动，这样可以使组件简单并且容易把握，因为子节点是无状态的，只需要从父节点获取props渲染即可。这样带来的收益是，顶层组件的某个prop改变了，React就会向下递归遍历整棵组件树，重新渲染所有使用到了这个属性的组件。</p>
-<p>单向数据流带来的几个重要的好处是：</p>
-<p>相比之前的资源重组实现的组件，单向数据流可以很好的完成组件间的数据通信，否则的话，我们需要写一个事件机制来处理这个事情。<br>大家可能会问，这所倡导的单向流动，那相对MVC或是MVVM框架的双向数据绑定简直是弱爆了。那么这里需要理解的是，这里的单向，是循环流动的单向，数据是持续更新的。双向数据绑定是优秀便捷的实现，这个需要用实现的成本和业务场景来考量二者了。<br>对于单向数据流目前已经有很好的类库实现了，如flux reflux redux等。</p>
-<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p><a href="https://github.com/facebook/react" target="_blank" rel="external">github官方仓库</a><br><a href="https://facebook.github.io/react/" target="_blank" rel="external">react官网</a><br><a href="http://reactjs.cn/" target="_blank" rel="external">react中国官网</a></p>
-<p>架构及周边生态<br>架构<br>和其他类库或是框架结合使用<br>比如和backbone结合，弥补了backbone的薄弱的view层；<br>和angular结合，让组件的渲染更快<br>和flux相关类库结合<br>flux<br>reflux<br>redux<br>生态<br>使用webpack打包<br>和ES6结合来封装你的组件<br>测试相关<br>浏览器兼容性等问题是你在使用后不得不考虑的问题。</p>
-<h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><p>越是基础的东西，越是重要；越是原理的内容，越要去理清楚。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/21/react1/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/21/react1/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -287,14 +283,14 @@ function search(formname) {
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/bower/">bower</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css3/">css3</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
 </div>
 
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/box/">box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/兼容性/">兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/冒泡/">冒泡</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/捕获/">捕获</a><span class="tag-list-count">1</span></li></ul>
 </div>
 
 
@@ -302,7 +298,7 @@ function search(formname) {
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
+    <a href="/tags/box/" style="font-size: 10px;">box</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/冒泡/" style="font-size: 10px;">冒泡</a> <a href="/tags/捕获/" style="font-size: 10px;">捕获</a>
   </div>
 </div>
 
