@@ -59,6 +59,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-06T02:35:12.000Z"><a href="/2016/12/06/Bubble/">2016-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/06/Bubble/">Bubble</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="阻止冒泡"><a href="#阻止冒泡" class="headerlink" title="阻止冒泡"></a>阻止冒泡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!e) &#123;</div><div class="line">    var e = window.event;</div><div class="line">    e.cancelBubble = true;</div><div class="line">&#125;</div><div class="line">if (e.stopPropagation)&#123;</div><div class="line">    e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">实例·</div><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div><div class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot; /&gt;</div><div class="line">&lt;title&gt;效果测试&lt;/title&gt;</div><div class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;jquery-1.4.2.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;</div><div class="line">	$(document).ready(function()&#123;</div><div class="line">		$(&apos;div.c1&apos;).click(function(e)&#123;alert(&apos;单击了div&apos;);&#125;);</div><div class="line">		$(&apos;div.c2&apos;).click(function(e)&#123;alert(&apos;单击了div&apos;);stopBubble(e);&#125;);</div><div class="line">		$(document).click(function(e)&#123;alert(&apos;单击了document&apos;);&#125;);</div><div class="line">		$(&apos;#txt1&apos;).val(&apos;123&apos;);</div><div class="line">		$(&apos;#txt1&apos;).click(function(e)&#123;stopBubble(e);&#125;);</div><div class="line">		$(&apos;#txt1&apos;).keydown(function(e)&#123;stopDefault(e);alert(&apos;你按下了键值&apos;+e.keyCode); &#125;);</div><div class="line">	&#125;)</div><div class="line">	 </div><div class="line">	function stopBubble(e) &#123; </div><div class="line">	//如果提供了事件对象，则这是一个非IE浏览器 </div><div class="line">	    if ( e &amp;&amp; e.stopPropagation ) </div><div class="line">	    //因此它支持W3C的stopPropagation()方法 </div><div class="line">	    e.stopPropagation(); </div><div class="line">	     else </div><div class="line">	    //否则，我们需要使用IE的方式来取消事件冒泡 </div><div class="line">	    window.event.cancelBubble = true; </div><div class="line">	&#125; </div><div class="line">	//阻止浏览器的默认行为 </div><div class="line">	function stopDefault( e ) &#123; </div><div class="line">	    //阻止默认浏览器动作(W3C) </div><div class="line">	    if ( e &amp;&amp; e.preventDefault ) </div><div class="line">	        e.preventDefault(); </div><div class="line">	    //IE中阻止函数器默认动作的方式 </div><div class="line">	    else </div><div class="line">	        window.event.returnValue = false; </div><div class="line">	    return false; </div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	body&#123;font-size:14px;&#125;</div><div class="line">	.c1&#123;font-family:&quot;Arial Unicode MS&quot;&#125;</div><div class="line">	.c2&#123;font-family:helvetica,simsun,arial,clean&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;/head&gt; </div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;c1&quot;&gt;测试的文字,这里是样式C1,单击以冒泡的形式触发事件.&lt;/div&gt;&lt;hr/&gt; </div><div class="line">	&lt;div class=&quot;c2&quot;&gt;测试的文字,这里是样式C2,单击以捕获的形式触发事件.&lt;/div&gt;&lt;hr/&gt;</div><div class="line">	&lt;div&gt;&lt;input id=&quot;txt1&quot; name=&quot;Text1&quot; type=&quot;text&quot; /&gt;&lt;/div&gt;&lt;hr/&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+    <a href="/2016/12/06/Bubble/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/06/Bubble/" data-count-type="comments"></a>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-12-05T05:14:17.000Z"><a href="/2016/12/05/tools/">2016-12-05</a></time>
       
       
@@ -191,53 +228,6 @@
         
         
     <a href="/2016/12/04/box/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/04/box/" data-count-type="comments"></a>
-
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-02T11:31:21.000Z"><a href="/2016/12/02/hexo2/">2016-12-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/02/hexo2/">hexo 常用的命令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装  </div><div class="line">npm update hexo -g #升级  </div><div class="line">hexo init #初始化</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; #新建文章</div><div class="line">hexo p == hexo publish</div><div class="line">hexo g == hexo generate#生成</div><div class="line">hexo s == hexo server #启动服务预览</div><div class="line">hexo d == hexo deploy#部署</div></pre></td></tr></table></figure>
-<p>服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</div><div class="line">hexo server -s #静态模式</div><div class="line">hexo server -p 5000 #更改端口</div><div class="line">hexo server -i 192.168.1.1 #自定义 IP</div><div class="line"></div><div class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</div><div class="line">hexo g #生成静态网页</div><div class="line">hexo d #开始部署</div></pre></td></tr></table></figure></p>
-<p>监视文件变动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate #使用 Hexo 生成静态文件快速而且简单</div><div class="line">hexo generate --watch #监视文件变动</div></pre></td></tr></table></figure></p>
-<p>完成后部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">两个命令的作用是相同的</div><div class="line">hexo generate --deploy</div><div class="line">hexo deploy --generate</div><div class="line">hexo deploy -g</div><div class="line">hexo server -g</div></pre></td></tr></table></figure></p>
-<p>草稿<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo publish [layout]</div></pre></td></tr></table></figure></p>
-<p>模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo new [layout]</div><div class="line">hexo new photo &quot;My Gallery&quot;</div><div class="line">hexo new &quot;Hello World&quot; --lang tw</div></pre></td></tr></table></figure></p>
-<p>推送到服务器上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo n #写文章</div><div class="line">hexo g #生成</div><div class="line">hexo d #部署 #可与hexo g合并为 hexo d -g</div></pre></td></tr></table></figure></p>
-<p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">找不到git部署 ERROR Deployer not found: git</div><div class="line">解决方法: npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>部署类型设置git 在主配置底部的deploy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>xcodebuild<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xcode-select: error: tool &apos;xcodebuild&apos; requires Xcode, but active developer directory &apos;/Library/Developer/CommandLineTools&apos; is a command line tools instance</div><div class="line">要安装 npm install bcrypt</div></pre></td></tr></table></figure></p>
-<p>RSS不显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装RSS插件 npm install hexo-generator-feed --save</div><div class="line">开启RSS功能 编辑hexo/_config.yml，添加如下代码：</div><div class="line">rss: /atom.xml #rss地址  默认即可</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-    <a href="/2016/12/02/hexo2/" class="ds-thread-count comment-link alignright" data-thread-key="2016/12/02/hexo2/" data-count-type="comments"></a>
 
       
       <div class="clearfix"></div>
